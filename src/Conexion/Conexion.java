@@ -6,10 +6,14 @@ public class Conexion {
 
     Connection con;
 
+    String url="jdbc:mysql://192.168.0.17:3306/farmacia?autoReconnect=true&useSSL=false";
+    String username="Prueba";
+    String password="root";
+    
     public Conexion() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmacia", "root", "root");
+            con = DriverManager.getConnection(url,username,password);
             if (con != null) {
                 System.out.println("Conexion exitosa");
             } else {
