@@ -32,7 +32,7 @@ public class panelFabricante extends javax.swing.JPanel {
      */
     public panelFabricante() {
         initComponents();
-        con = new Conexion();
+        con = new Conexion(Home.getUser(),Home.getPass());
         setVisible(true);
         mostrarTabla(tableFabricante);
     }

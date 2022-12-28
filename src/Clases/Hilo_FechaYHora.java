@@ -24,18 +24,29 @@ public class Hilo_FechaYHora extends Thread {
     Calendar Cal;
     JLabel txtdia;
     JLabel txtHora;
+    JLabel txtTiempo;
+    
+    int hora;
+    int minuto;
+    int segundo;
+    
+    
 
-    public Hilo_FechaYHora(JLabel Dia, JLabel txtHora) {
+    public Hilo_FechaYHora(JLabel Dia, JLabel txtHora, JLabel tiempo) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
         this.txtHora = txtHora;
         this.txtdia = Dia;
+        this.txtTiempo = tiempo;
 
     }
 
     @Override
     public void run() {
-        SimpleDateFormat sf = new SimpleDateFormat("dd");
+        hora=Integer.valueOf(0+""+0);
+        minuto=Integer.valueOf(0+""+0);
+        segundo=Integer.valueOf(0+""+0);
+
         SimpleDateFormat hf = new SimpleDateFormat("HH:mm:ss");
         while (true) {
             fechaYhora = new Date();
@@ -45,6 +56,9 @@ public class Hilo_FechaYHora extends Thread {
                     fechaYhora = new Date();
                     Cal = Calendar.getInstance();
                     txtHora.setText(hf.format(fechaYhora));
+
+                    txtTiempo.setText(contadorTiempo());
+
                     sleep(1000);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Hilo_FechaYHora.class.getName()).log(Level.SEVERE, null, ex);
@@ -97,6 +111,27 @@ public class Hilo_FechaYHora extends Thread {
         return dia + " " + sf.format(Cal.getTime());
     }
 
+    private String contadorTiempo() {
+        
+        
+        segundo++;
+        if(segundo==60){
+            minuto++;
+            segundo=00;
+        }
+        if(minuto==60){
+            hora++;
+            minuto=00;
+        }
+        
+        if(hora==24){
+            hora=00;
+        }
+        
+        String tiempo=(hora<=9?"0":"")+hora+":"+(minuto<=9?"0":"")+minuto+":"+(segundo<=9?"0":"")+segundo;
+        
+        return  tiempo;
+        
+    }
+
 }
-
-

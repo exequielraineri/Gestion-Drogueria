@@ -13,10 +13,9 @@ import java.sql.*;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import sun.awt.DefaultMouseInfoPeer;
+import sistema_drogueria.Home;
 import static sistema_drogueria.Home.con;
 
 /**
@@ -31,12 +30,11 @@ public class panelReportes extends javax.swing.JPanel {
     PreparedStatement pstm;
     ResultSet rs;
     DefaultTableModel model;
-    Calendar fecha;
 
     public panelReportes() {
         initComponents();
         setVisible(true);
-        con = new Conexion();
+        con = new Conexion(Home.getUser(),Home.getPass());
         txtFechaDesde.setCalendar(Calendar.getInstance());
         txtFechaHasta.setCalendar(Calendar.getInstance());
 
@@ -826,7 +824,7 @@ public class panelReportes extends javax.swing.JPanel {
 
     public int cantidadTotalRegistros() {
         try {
-            con = new Conexion();
+            con = new Conexion(Home.getUser(),Home.getPass());
             String ins = "select * from facturaventacabecera join farmacia on fac_farID=farm_id";
             PreparedStatement ps = con.getConnection().prepareStatement(ins);
             ResultSet r = ps.executeQuery();

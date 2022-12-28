@@ -18,6 +18,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import sistema_drogueria.Home;
 import static sistema_drogueria.Home.con;
 
 /**
@@ -35,7 +36,7 @@ public class panelCompra extends javax.swing.JPanel {
      */
     public panelCompra() {
         initComponents();
-        con = new Conexion();
+        con = new Conexion(Home.getUser(),Home.getPass());
         borrarTabla(tablaDroga);
         txtfecha.setCalendar(Calendar.getInstance());
         agregarAlComboBox(ComboBoxFabricante);
@@ -164,6 +165,7 @@ public class panelCompra extends javax.swing.JPanel {
         txtStock.setEditable(false);
 
         btnLimpiar.setText("X");
+        btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -291,6 +293,7 @@ public class panelCompra extends javax.swing.JPanel {
         jPanel1.add(Cuerpo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 800, 420));
 
         jButton1.setText("Cancelar");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -299,6 +302,7 @@ public class panelCompra extends javax.swing.JPanel {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, 170, 50));
 
         jButton2.setText("Confirmar");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -307,6 +311,7 @@ public class panelCompra extends javax.swing.JPanel {
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, 170, 50));
 
         jButton3.setText("Nuevo");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

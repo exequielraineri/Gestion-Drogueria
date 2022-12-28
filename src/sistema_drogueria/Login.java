@@ -193,7 +193,7 @@ public class Login extends javax.swing.JFrame {
         if (user.equals("admin") && pass.equals("123")) {
             lblHom.setText("Se inicio sesion");
             this.setVisible(false);
-            Home home = new Home();
+            Home home=new Home(user,pass);
         } else {
             lblHom.setText("Usuario o Contraseña incorrecta");
         }

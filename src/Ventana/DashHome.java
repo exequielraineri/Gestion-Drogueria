@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import sistema_drogueria.Home;
 
 /**
  *
@@ -24,9 +25,8 @@ import javax.swing.JLabel;
  */
 public class DashHome extends javax.swing.JPanel {
 
-    /**
-     * Creates new form DashhHome
-     */
+    
+    
     public DashHome() {
         initComponents();
         setVisible(true);
@@ -207,7 +207,7 @@ public class DashHome extends javax.swing.JPanel {
     private void MostrarCantidades() {
 
         try {
-            Conexion con = new Conexion();
+            Conexion con = new Conexion(Home.getUser(),Home.getPass());
             PreparedStatement ps = null;
             ResultSet rs = null;
 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -10,17 +10,12 @@ import Clases.Farmacia;
 import Clases.Medicamento;
 import Conexion.Conexion;
 import LSE.Nodo;
-import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.ListItem;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.text.pdf.codec.Base64;
-import com.sun.org.apache.bcel.internal.generic.AASTORE;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -34,12 +29,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
-import javafx.scene.Node;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import sistema_drogueria.Home;
 import static sistema_drogueria.Home.con;
 
 /**
@@ -62,7 +56,7 @@ public class panelVenta extends javax.swing.JPanel {
     public panelVenta() {
         initComponents();
         setVisible(true);
-        con = new Conexion();
+        con = new Conexion(Home.getUser(),Home.getPass());
         borrarTabla(tablaMedicamentos);
         txtfecha.setCalendar(Calendar.getInstance());
         agregarAlComboBox(ComboBoxFarmacia);

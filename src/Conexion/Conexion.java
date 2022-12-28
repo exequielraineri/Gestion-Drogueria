@@ -5,15 +5,20 @@ import java.sql.*;
 public class Conexion {
 
     Connection con;
-
+    //String url = "jdbc:mysql://192.168.0.13:3306/farmacia?autoReconnect=true&useSSL=false";
     String url="jdbc:mysql://192.168.0.17:3306/farmacia?autoReconnect=true&useSSL=false";
     String username="Prueba";
     String password="root";
-    
-    public Conexion() {
+
+    public Conexion(String user, String pass) {
+//        username=user;
+//        password=pass;
+
+
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection(url,username,password);
+            con = DriverManager.getConnection(url, username, password);
             if (con != null) {
                 System.out.println("Conexion exitosa");
             } else {

@@ -260,7 +260,7 @@ public class panelPagarFactura extends javax.swing.JPanel {
                 try {
                     String upd = "update facturaventacabecera set fac_fechapago=? where fac_nrofac=?";
                     int nroFac = (int) model.getValueAt(tablaFacturas.getSelectedRow(), 0);
-                    con = new Conexion();
+                    con = new Conexion(Home.getUser(),Home.getPass());
                     pstm = con.getConnection().prepareStatement(upd);
                     java.util.Date f = new java.util.Date();
                     Timestamp time = new Timestamp(f.getTime());

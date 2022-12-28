@@ -32,7 +32,7 @@ public class panelFarmacia extends javax.swing.JPanel {
      */
     public panelFarmacia() {
         initComponents();
-        con=new Conexion();
+        con=new Conexion(Home.getUser(),Home.getPass());
         setVisible(true);
         mostrarTablaF(tableFarmacia);
         mostrarTablaFtico(tableFarmaceutico);

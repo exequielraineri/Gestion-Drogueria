@@ -34,19 +34,41 @@ public class Home extends javax.swing.JFrame {
     panelMed pmed;
     Date FechaYHora;
     public static Conexion con;
+    public static String user;
+    public static String pass;
+
+    public static String getUser() {
+        return user;
+    }
+
+    public static void setUser(String user) {
+        Home.user = user;
+    }
+
+    public static String getPass() {
+        return pass;
+    }
+
+    public static void setPass(String pass) {
+        Home.pass = pass;
+    }
 
     /**
      * Creates new form Home
+     * @param user
+     * @param pass
      */
-    public Home() {
+    public Home(String user,String pass) {
         initComponents();
         setLocationRelativeTo(this);
+        setUser(user);
+        setPass(pass);
         ColocarImg("/imagenes/Fondo.png", lblogo);
-        lblUser.setText("Admin");
+        lblUser.setText(getUser());
         //ColocarImg("src/imagenes/AgregarMed1.png", btnAgregarMedicamento );
-        con = new Conexion();
+        con = new Conexion(getUser(),getPass());
         setVisible(true);
-        Hilo_FechaYHora hiloHora = new Hilo_FechaYHora(Dia, txtHora);
+        Hilo_FechaYHora hiloHora = new Hilo_FechaYHora(Dia, txtHora,lblTiempo);
         hiloHora.start();
 //        ColocarImg("/imagenes/home1.png", lblHome);
         Contenedor.removeAll();
@@ -75,6 +97,7 @@ public class Home extends javax.swing.JFrame {
         btnReportes = new javax.swing.JButton();
         lblUser = new javax.swing.JLabel();
         lblogo = new javax.swing.JLabel();
+        lblTiempo = new javax.swing.JLabel();
         Contenedor = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -196,6 +219,12 @@ public class Home extends javax.swing.JFrame {
         Menu.add(lblogo);
         lblogo.setBounds(33, 23, 110, 80);
 
+        lblTiempo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblTiempo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTiempo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Menu.add(lblTiempo);
+        lblTiempo.setBounds(10, 100, 150, 20);
+
         getContentPane().add(Menu, java.awt.BorderLayout.LINE_START);
 
         Contenedor.setBackground(new java.awt.Color(80, 134, 193));
@@ -309,6 +338,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton btnVenta;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblTiempo;
     private javax.swing.JLabel lblUser;
     private javax.swing.JLabel lblogo;
     private javax.swing.JLabel txtHora;

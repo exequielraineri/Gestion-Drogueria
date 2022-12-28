@@ -26,6 +26,19 @@ public class panelInventario extends javax.swing.JPanel {
         initComponents();
         setVisible(true);
         mostrarpanelMedicamento();
+
+        btnMed.setBackground(new ColorUIResource(51, 204, 255));
+        btnMed.setForeground(Color.BLACK);
+
+        btnFabricante.setBackground(Color.darkGray);
+        btnFabricante.setForeground(Color.WHITE);
+
+        btnFarmtico.setBackground(Color.darkGray);
+        btnFarmtico.setForeground(Color.WHITE);
+
+        btnFarmacia.setBackground(Color.darkGray);
+        btnFarmacia.setForeground(Color.WHITE);
+
     }
 
     /**
@@ -111,7 +124,7 @@ public class panelInventario extends javax.swing.JPanel {
     }//GEN-LAST:event_btnFabricanteActionPerformed
 
     private void btnFarmaciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFarmaciaActionPerformed
-        mostrarpanelFarmacia();   
+        mostrarpanelFarmacia();
         BotonSeleccionado(evt);
     }//GEN-LAST:event_btnFarmaciaActionPerformed
 
@@ -249,5 +262,5 @@ public class panelInventario extends javax.swing.JPanel {
         }
 
     }
-    
+
 }

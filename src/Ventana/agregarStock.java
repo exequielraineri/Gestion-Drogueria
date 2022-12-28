@@ -35,7 +35,7 @@ public class agregarStock extends javax.swing.JFrame {
     public agregarStock() {
         initComponents();
         setVisible(true);
-        con=new Conexion();
+        con=new Conexion(Home.getUser(),Home.getPass());
         setLocationRelativeTo(null);
         mostrarTabla(tableMedicamentos);
     }

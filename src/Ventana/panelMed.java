@@ -32,7 +32,7 @@ public class panelMed extends javax.swing.JPanel {
      */
     public panelMed() {
         initComponents();
-        con = new Conexion();
+        con = new Conexion(Home.getUser(),Home.getPass());
         setVisible(true);
         mostrarTabla(tableMedicamentos);
     }

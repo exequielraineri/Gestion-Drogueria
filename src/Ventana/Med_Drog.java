@@ -32,7 +32,7 @@ public class Med_Drog extends javax.swing.JFrame {
     public Med_Drog(int idMed) {
         initComponents();
         setVisible(true);
-        con = new Conexion();
+        con =new Conexion(Home.getUser(),Home.getPass());
         setLocationRelativeTo(null);
         med = obtenerMedicamento(idMed);
         lblMedicamento.setText(med.getMed_nombre());
